@@ -25,8 +25,8 @@ def scrape_one():
     for link in div_part:
         with open('archive2019.json', 'a+') as f:
             fixed_text = link.text.replace(",", "-")
-            f.write(f'"Name": "{fixed_text}",\n')
-            f.write(f'"Url": "{link.a.get("href")}",\n')
+            f.write('{' + f'"Name": "{fixed_text}",\n')
+            f.write(f'"Url": "{link.a.get("href")}"' + '},\n')
             # f.write(link.a.get('href') + '\n')
 
 while page_num < 74:
